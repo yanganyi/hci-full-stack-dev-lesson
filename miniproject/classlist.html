@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>class list</title>
+	<style>
+		h1{
+			color: red;
+		}
+		li {
+			padding-inline: .4em;
+			margin:0 0 0.3em;
+		}
+		a {
+			text-decoration: none;
+			outline: 1px solid #999;
+			padding-inline: 0.5em;
+		}
+		label {
+			color: #900;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<h1>Class List <span></span></h1>
+	<form>
+		<label> class :</label>
+		<select name="class">
+			<option value="">Select class</option>
+			<option  value="4I1">4I1</option>
+			<option  value="4I2">4I2</option>
+			<option  value="4A3">4A3</option>
+		</select>
+		<a href="classphotos.html">Class Photos</a>
+	</form>
+
+	
+	<ol>
+	</ol>
+	<script>
+		const urlParams = new URLSearchParams(window.location.search);
+		const cls = (urlParams.get('class') || '').toUpperCase();
+		const displayClassList = (cls, students)=>{
+			if (cls && students.length) {
+				for(i of students) {
+					const li = document.createElement('li');
+					li.textContent = i.name;
+					document.querySelector('ol').appendChild(li);
+				}
+			}
+		}
+
+		fetch('sec4.json')
+		 	.then(response => response.json())
+		 	.then(data => {
+				const students = data.filter(student => student.class == cls);
+				displayClassList(cls,students);
+				document.querySelector("a").setAttribute("href", `classphotos.html?class=${cls}`)
+				document.querySelector("span").textContent = cls;
+			});
+
+		document.querySelector('select').addEventListener('change', e=>{
+			document.forms[0].submit();
+		})
+	</script>
+</body>
+</html>

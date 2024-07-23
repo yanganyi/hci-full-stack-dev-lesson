@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" contact="width=device-width,initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@300&display=swap');
+        
+
+        body {
+            border: 3px solid blue;
+        }
+
+        body * {
+            font-family: 'Sofia Sans';
+        }
+
+        div {
+            color: blue;
+            background-color: white;
+            text-align: center;
+            font-size: 23px;
+        }
+
+        main {
+            background-color: rgba(0, 140, 255, 0.9);
+            color: white;
+            padding-left: 50px;
+            padding-top: 15px;
+        }
+
+        main > form > input {
+            text-align: center;
+            margin-left: 50%;
+        }
+
+        ol > li {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        header {
+            font-size: 4em;
+        }
+        main > h2 {
+            font-size: 2em;
+        }
+        #meow {
+            margin-bottom: 25px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <header>Ninja Quiz</header>
+    </div>
+    <main>
+        <h2>On with the questions</h2>
+        <form>
+            <ol>
+                <li>How do you give a ninja directions?</li><br>
+                <input type="radio" id="q1" value="A"> <label for="q1a">Show them a Map</label><br><br>
+                <input type="radio" id="q1" value="B"> <label for="q1b">Don't worry, a ninja will find you</label><br><br>
+                <!-- space is intended                ^^ to add space after the radio button -->
+
+                <li>If a ninja has 3 apples, then gives one to Mario and one to Yoshi, how many apples does the ninja have left?</li><br>
+                <input type="radio" id="q2" value="A"> <label for="q2a">1 Apple</label><br><br>
+                <input type="radio" id="q2" value="B"> <label for="q2b">3 Apples and 2 corpses</label><br><br>
+
+                <li>How do you know when you've met a ninja?</li><br>
+                <input type="radio" id="q3" value="A"> <label for="q3a">You'll recognise the outfit</label><br><br>
+                <input type="radio" id="q3" value="B"> <label for="q3b">The grim reaper will tell you</label><br><br>
+                
+                <li>What's a ninja's favourite array method?</li><br>
+                <input type="radio" id="q4" value="A"> <label for="q4a">forEach</label><br><br>
+                <input type="radio" id="q4" value="B"> <label for="q4b">slice</label>
+            </ol>
+            <input type="reset" value="Submit" id="meow">
+        </form>
+    </main>
+</body>
+</html>

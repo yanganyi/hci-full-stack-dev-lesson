@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        body {
+            background-color: blue;
+            color: white;
+            font-size: 20px;
+        }
+        header {
+            text-align: center;
+            background-color: white;
+            padding-block: 2%;
+            color: blueviolet;
+            margin-bottom: 1%;
+        }
+        input:checked {
+            outline: 2px solid deeppink;
+        }
+        #Submission {
+            margin: auto 46%;
+            width: 10%;
+            padding: 2%;
+        }
+        ol {
+            margin-top: 1%;
+        }
+        li {
+            margin-bottom: 2%;
+        }
+    </style>
+</head>
+<body>
+    <header> Quiz Time! </header>
+    <main>
+    <h2> Questions! </h2>
+    <form>
+    <ol id="lol">
+         <!-- 
+        <li> 
+            What form is this equation in - (ax<sup>2</sup> + bx + c)?<br>
+            <input type="radio" name="q1" id="q11" value = "Vertex"><label for="q1a">Vertex form</label><br>
+            <input type="radio" name="q1" id="q12" value = "General"><label for="q1b">General form</label><br>                    
+        </li>
+        <li>
+            Solve for the root(s) of this equation - (9x<sup>2</sup> + 6x + 1 = 0).<br>
+            <input type="radio" name="q2" id="q21" value = "-1/3"><label for="q2a">-1/3</label><br>
+            <input type="radio" name="q2" id="q22" value = "1/3"><label for="q2b">1/3</label><br>
+            <input type="radio" name="q2" id="q23" value = "3"><label for="q2c">3</label><br>
+            <input type="radio" name="q2" id="q24" value = "-3"><label for="q2d">-3</label><br>
+        </li>
+        <li>
+            If sin A = p, find the value of cos A. <br>
+            <input type="radio" name="q3" id="q31" value = "1/p"><label for="q3a">1/p</label><br>
+            <input type="radio" name="q3" id="q32" value = "root(1-p^2)"><label for="q3b"><span>&#8730;</span>1-p<sup>2</sup></label><br>
+            <input type="radio" name="q3" id="q33" value = "1/root(1-p^2)"><label for="q3c">1/<span>&#8730;</span>1-p<sup>2</sup></label><br>   
+            <input type="radio" name="q3" id="q34" value = "p"><label for="q3d">p</label><br>         
+        </li>
+        -->
+    </ol>
+    <button type="submit" name="Submit" id="Submission">Submit</button><br>
+    </form>
+    </main>
+</body>
+<script>
+    let questions = [
+    {
+        "question" : "What form is this equation in - (ax^2 + bx + c)?",
+        "options" : ["Vertex form", "General form"],
+        "correct" : "q12",
+        "questionNum" : "q1",
+    },
+    {
+        "question" : "Solve for the root(s) of this equation - (9x^2 + 6x + 1 = 0).",
+        "options" : ["-1/3", "1/3", "3", "-3"],
+        "correct" : "q21",
+        "questionNum" : "q2",
+    },
+    {
+        "question" : "If sin A = p, find the value of cos A.",
+        "options" : ["1/p", "root(1-p^2)", "1/root(1-p^2)", "p"],
+        "correct" : "q32",
+        "questionNum" : "q3",
+    },
+    {
+        "question" : "How much wood would a woodchuck chuck if a woodchuck could chuck wood?",
+        "options" : ["None, bc nonechuk", "The whole 3 would vanish"],
+        "correct" : "q41",
+        "questionNum" : "q4",
+    }
+    ]
+    function addToCode(){
+        for (i of questions) {
+            ol = document.getElementById('lol');
+            li = document.createElement('li');
+            title = document.createTextNode(i["question"]);
+            li.appendChild(title);
+            li.appendChild(document.createElement('br'));
+            for (j in i["options"]) {
+                input = document.createElement('input');
+                input.setAttribute('type', 'radio');
+                input.setAttribute('name', i["questionNum"]);
+                input.setAttribute('value', i["options"][j]);
+                input.setAttribute('id', i["questionNum"] + (parseInt(j)+1));
+                label = document.createElement('label');
+                label.setAttribute('for', i["questionNum"] + (parseInt(j)+1));
+                text = document.createTextNode(i["options"][j]);
+                label.appendChild(text);
+                li.appendChild(input);
+                li.appendChild(label);
+                li.appendChild(document.createElement('br'));  
+            }
+            ol.appendChild(li);   
+        }
+    }
+    addToCode();
+    const form = document.querySelector("form");
+    form.addEventListener('submit', Submit);
+    function Submit(event) {
+        event.preventDefault();
+        const form = event.target;
+        let score = 0;
+        for (i of questions) {
+            y = i["correct"];
+            if (form.elements[y].checked) {
+                score += 1;
+            }
+        }
+        return alert("Your score is : " + score + "/" + questions.length);
+    }
+</script>
+</html>

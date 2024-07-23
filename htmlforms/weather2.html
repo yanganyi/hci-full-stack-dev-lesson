@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" contact="width=device-width,initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Lora:ital,wght@0,400;1,500&family=Maven+Pro:wght@400;700&family=Roboto:wght@100&display=swap');
+    form {width: 65%; margin: auto;}
+    body {background-color: rgb(245, 245, 245);}
+    img {margin: auto;}
+    .widget>* {display: block; text-align:center;}
+    form>* {display: block; text-align:center;}
+    h1 {
+        font-family: 'Maven Pro', sans-serif;
+        margin-top: 30px;
+        color: rgb(96, 105, 117);
+    }
+    input {
+        font-family: 'Maven Pro', sans-serif;
+        margin: auto; margin-top: 20px; margin-bottom: 20px;
+        border: 2px solid black; border-radius: 5px;
+        padding: 5px;
+        width: 400px;
+    }
+    .widget {
+        margin: auto;
+        background-color: white;
+        width: fit-content;
+        box-shadow: 0 0 10px rgb(96, 105, 117);
+    }
+    
+    .weatherimg {
+        width: 70px;
+        border-radius: 35px;
+        background-color: #f8f9fa;
+        margin-top: -50px;
+
+    }
+    #country {
+        margin-top: 50px;
+        margin-bottom: 30px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bolder;
+    }
+    #info {
+        font-size:15px;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+    }
+    #temp {
+        font-size: 50px;
+        font-family: 'Maven Pro', sans-serif;
+        color: rgb(101, 101, 101);
+    }
+</style>
+<body>
+    <form id="main-container">
+        <h1>Weather Ninja</h1>
+        <label style="font-family: 'Roboto', sans-serif;">Enter a location for weather information</label>
+        <input type="text" placeholder="Singapore, USA, etc">
+        <div class="widget">
+            <img src="img/night.svg">
+            <div><img class="weatherimg" src="img/icons/2.svg"></div>
+            <label id="country">LONDON</label>
+            <label id="info">CLOUDY</label>
+            <label id="temp">9.1°C</label>
+        </div>
+    </form>
+</body>
+</html>

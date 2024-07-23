@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" contact="width=device-width,initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Roboto:wght@300&display=swap");
+    body,html{background-color: rgb(59, 20, 110); height: fit-content;}
+    #todos > li, #todos > li > button {background-color: rgb(59, 20, 110);}
+    .textInput, .deleteButton:hover, #todos {background-color: rgb(43, 16, 90);}
+    .textInput, #todos > li > button, h1, label {color: white;}
+
+    label {font-size: 20px;}
+    #todos > li > label {word-wrap: break-word;}
+    #todos::-webkit-scrollbar {display: none;}   
+
+    .textInput {
+        font-size: 15px; 
+        padding: 10px;
+        border: none; border-radius: 10px;
+        width: 80%; margin-top: 15px;
+    }
+    #todos > li {
+        text-align: left;
+        padding-left: 10px;
+        border-radius: 5px;
+        margin: 2px;
+        height: 38px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    #todos > li > button {
+        border: none;
+        padding: 8px 10px;
+        font-size: 19px;
+        cursor: pointer;
+        float: right;
+    }
+     
+    #todos {
+        height: 40%;
+        width: 80%;
+        margin: auto;
+        margin-top: 30px;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        list-style: none;
+        padding-left: 0px;
+    }
+    
+    form { 
+        margin: auto;
+        width: 50%;
+        margin-top: 2em;
+        text-align: center;
+        height: 90%;
+    }
+    h1 {
+        font-size: 40px;
+        margin: 5px;
+        font-family: "Lora", serif;
+    }
+    
+</style>
+<body>
+    <form>
+        <h1>TODO list</h1>
+        <input type="text" id="bar" placeholder="search todos", class="textInput">
+            <ul id="todos"></ul><br>
+            <label for="newtodo">Add a new todo:</label><br>
+        <input type="text" id="newtodo", class="textInput">
+    </form>
+</body>
+<script>
+    const listBody = document.querySelector("ul")
+    const newItemInput = document.querySelector("#newtodo")
+    const bar = document.querySelector("#bar")
+
+    const template = document.createElement("li")
+    template.innerHTML = 
+    `<label class="displayText"></label>
+    <button type="button" onclick="this.parentElement.remove()"><i class="fa fa-trash"></i>`
+
+    newItemInput.addEventListener("keyup", function createNewListItem(a){
+        if (a.key==="Enter" && newItemInput.value.length!=0){
+            var listItem=template.cloneNode(true)
+            listItem.querySelector("label").innerHTML = newItemInput.value
+            listBody.appendChild(listItem)
+            newItemInput.value=""
+            a.preventDefault()
+        }
+    })
+
+    bar.addEventListener("keyup", function filterList(a){
+        [...listBody.children].forEach(x=>{
+            if (x.querySelector(".displayText").innerHTML.includes(bar.value) || bar.value.length == 0) x.style.display = "flex";
+            else x.style.display = "none";
+        })
+        a.preventDefault()
+    })
+</script>

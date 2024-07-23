@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" contact="width=device-width,initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Roboto:wght@300&display=swap');
+    body,html{background-color: rgb(59, 20, 110); height: fit-content;}
+    form { 
+        text-align: center;
+        margin: auto; margin-top: 2em;
+        width: 50%; height: 90%;
+    }
+    h1 {
+        color: white;
+        font-family: 'Lora', serif;
+        font-size: 40px;
+        margin: 5px;
+    }
+    label {
+        color: white;
+        font-size: 20px;
+    }
+    .input {
+        background-color: rgb(43, 16, 90);
+        color: white;
+        padding: 10px;
+        margin-top: 15px;
+        border-radius: 10px;
+        font-size: 15px;
+        width: 70%;
+        border: 0;
+    }
+    .item {
+        background-color: rgb(59, 20, 110);
+        border: 2px solid rgb(43, 16, 90);
+        text-align: left;
+        position: relative;
+        padding-left: 10px;
+        height: 38px;
+        border-radius: 5px;
+    }
+    .item > label {
+        align-self: left;
+        margin: 1.5%; margin-left: 0;
+        position: absolute;
+    }
+    .deleteButton {
+        background-color:rgb(59, 20, 110);
+        border: 0;
+        color: white;
+        font-size: 19px;
+        padding: 8px 10px;
+        cursor: pointer;
+        float: right
+    }
+    .deleteButton:hover{background-color: rgb(43, 16, 90);}
+    #container {
+        background-color: rgb(43, 16, 90);
+        min-height: 40%;
+        max-height: 40%;
+        width: 80%;
+        margin: auto; margin-top: 30px;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        list-style: none;
+        padding-left: 0px;
+    }
+</style>
+<body>
+    <form action="">
+        <h1>TODO list</h1>
+        <input type="text" placeholder="Search TODOs", class="input">
+        <ul id="container">
+            <li class="item">
+                <label>Eat Breakfast</label>
+                <button class="deleteButton"><i class="fa fa-trash"></i>
+            </li>
+            <li class="item">
+                <label>Go to School</label>
+                <button class="deleteButton"><i class="fa fa-trash"></i>
+            </li>
+            <li class="item">
+                <label>Game after 2pm</label>
+                <button class="deleteButton"><i class="fa fa-trash"></i>
+            </li>
+        </ul><br>
+        <label for="inputbox">Add a new todo:</label><br>
+        <input type="text" id="inputbox", class="input">
+    </form>
+</body>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" contact="width=device-width,initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="currency.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Inter Tight', sans-serif;
+      background-color: whitesmoke;
+    }
+
+    .window {
+      position: absolute;
+      background-color: white;
+      box-shadow: 10px 10px 5px grey;
+      padding: 30px;
+      width: 400px;
+      top: 15%;
+    }
+
+    #p1 {
+      margin-bottom: 10px;
+      font-size: 30px;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 10px;
+    }
+
+    #p2 {
+      font-size: 15px;
+      font-weight: bold;
+      color: grey;
+      margin-bottom: 30px;
+    }
+
+    .input-field {
+      text-align: left;
+    }
+
+    label {
+      font-size: 15px;
+      font-weight: bold;
+      color: grey;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px;
+      border-color: black;
+      border-style: solid;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 1px;
+      border: 1px;
+      border-color: black;
+      border-style: solid;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+
+    .button-container {display: flex; justify-content: center;}
+
+    button {
+      justify-content: center;
+      background-color: red;
+      
+      padding: 10px;
+      width: 100px;
+      margin: 20px;
+      border: solid;
+      border-width: 1.5px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="window">
+    <div id="p1">Currency Converter</div>
+    <div id="p2">Try our free currency Converter</div>
+
+    <form action="">
+      <div class="input-field" id="from">
+        <label for="from">From: </label><br>
+        <select name="from" id="from">
+          <option value="usd">United States Dollar</option>
+          <option value="inr">Indian Rupee</option>
+        </select>
+      </div>
+
+      <div class="input-field" id="to">
+        <label for="to">To: </label><br>
+        <select name="to" id="to">
+          <option value="inr">Indian Rupee</option>
+          <option value="usd">United States Dollar</option>
+          
+        </select>
+      </div>
+
+      <div class="input-field" id="amount">
+        <label for="amount">Amount: </label><br>
+        <input type="number" name="amount" id="amount">
+      </div>
+
+      <div class="button-container"><button>Convert</button></div>
+    </form>
+
+    <div id="output">1 USD = 81.63 INR</div>
+  </div>
+</body>
+</html>

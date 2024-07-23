@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" contact="width=device-width,initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@300&display=swap');
+        
+
+        body {
+            border: 3px solid blue;
+        }
+
+        body * {
+            font-family: 'Sofia Sans';
+        }
+
+        div {
+            color: blue;
+            background-color: white;
+            text-align: center;
+            font-size: 23px;
+        }
+
+        main {
+            background-color: rgba(0, 140, 255, 0.9);
+            color: white;
+            padding-left: 50px;
+            padding-top: 15px;
+        }
+
+        main > form > input {
+            text-align: center;
+            margin-left: 50%;
+        }
+
+        ol > li {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        header {
+            font-size: 4em;
+        }
+        main > h2 {
+            font-size: 2em;
+        }
+        #meow {
+            margin-bottom: 25px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <header>Ninja Quiz</header>
+    </div>
+    <main>
+        <h2>On with the questions</h2>
+        <form>
+            <ol id="myOl">
+            </ol>
+            <input type="submit" value="submit" id="submit">
+        </form>
+    </main>
+    <script>
+
+    let questions = [{
+            "ques": "1+1=",
+            "opti": ["2","11"],
+            "corr": "q1a",
+            "qNum": "q1",
+        },{
+            "ques": "If a ninja has 3 apples, then gives one to Mario and one to Yoshi, how many apples does the ninja have left?",
+            "opti": ["1 Apple","3 Apples and 2 Corpses"],
+            "corr": "q2b",
+            "qNum": "q2",
+        },{
+            "ques": "Which language provides structure?",
+            "opti": ["Html","Css","Javascript"],
+            "corr": "q3a",
+            "qNum": "q3",
+        },{
+            "ques": "What's a ninja's favourite array method?",
+            "opti": ["forEach","slice"],
+            "corr": "q4b",
+            "qNum": "q4",
+        }]
+        function addToCode(){
+            for (i of questions){ // questions.forEach((qn,i)=>{})  in this case qn.ques will give the question
+                ol = document.getElementById('myOl');
+                li = document.createElement('li');
+                title = document.createTextNode(i["ques"]);
+                li.appendChild(title);
+                li.appendChild(document.createElement('br'));
+                for (j in i["opti"]) {
+                    input = document.createElement('input');
+                    input.setAttribute('type', 'radio');
+                    input.setAttribute('name', i["qNum"]);
+                    input.setAttribute('value', i["opti"][j]);
+                    input.setAttribute('id', i["qNum"] + (parseInt(j)+1));
+                    label = document.createElement('label');
+                    label.setAttribute('for', i["qNum"] + (parseInt(j)+1));
+                    text = document.createTextNode(i["opti"][j]);
+                    label.appendChild(text);
+                    li.appendChild(input);
+                    li.appendChild(label);
+                    li.appendChild(document.createElement('br'));
+                }
+                li.appendChild(document.createElement('br'));
+                ol.appendChild(li);   
+            }
+        }
+        addToCode();
+        const form = document.querySelector("form");
+        form.addEventListener('submit', Submit);
+        function Submit(event) {
+            event.preventDefault();
+            const form = event.target;
+            let score = 0;
+            for (i of questions) {
+                y = i["corr"];
+                if (form.elements[y].checked) {
+                    score += 1;
+                }
+            }
+            return alert("Your score is : " + score + "/" + questions.length);
+        }
+    </script>
+</body>
+</html>

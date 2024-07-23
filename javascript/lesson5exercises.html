@@ -1,0 +1,110 @@
+<script>
+    function func1(arr){
+        cond=(c) => c>10 && c<100;
+        return arr.every(cond);
+    }
+
+    function func2(arr,dt){
+        cond=(c) => typeof(c)==dt;
+        return arr.every(cond);
+    }
+
+    function func3(arr){
+        cond=(c) => c%7==0;
+        return arr.some(cond);
+    }
+
+    function func4(arr){
+        cond=(c) => Array.isArray(c);
+        return arr.some(cond);
+    }
+
+    function func5(){
+        const aStudent=[
+            {sStudentId : "001" , fPercentage : 91.2},
+            {sStudentId : "002" , fPercentage : 78.7},
+            {sStudentId : "003" , fPercentage : 62.9},
+            {sStudentId : "004" , fPercentage : 81.4}
+        ];
+        arr=[];
+        for (i of aStudent) if (i['fPercentage']>74) arr.push(i['sStudentId']);
+        return(arr);
+    }
+
+    function func6(arr){
+        result=[];
+        for (i of arr) if (typeof(i)=="number") result.push(i);
+        return result;
+    }
+
+    function func7(arr){
+        return arr.map(val => {return val/180 * Math.PI;});
+    }
+
+    function func8(arr){
+        return arr.map(val => {return val/Math.PI * 180;});
+    }
+
+    function func9(){
+        return names = ["Tan Si Yang", "Chen Xi", "Loh Davis", "Kim Jong Eng"].map(function(name){return name.split(" ")[0];});
+    }
+
+    let str = ` CHAN DARREL	Virgo
+                KHOO CHENFENG	Aquarius
+                LONG CHENG XING	Leo
+                AIDAN YEONG YUN LE	Taurus
+                BAI NARUOSHUI	Cancer
+                BEH HONG KIAT	Pisces
+                CAI SHUCE	Libra
+                CHENG XIZHE	Aquarius
+                DECLAN NG KIAN HENG	Sagittarius
+                FAN CHENGWEI	Cancer
+                GWEE JYUN-EN, ASHER	Aries
+                LEE JOON YEE BRYAN	Gemini
+                LEE JUN XI	Aries
+                LEE WENXI	Pisces
+                LIM ZHU WEI	Gemini
+                LIN ZEDONG	Virgo
+                LIU ZHI	Cancer
+                LO YU CAINE	Scorpio
+                PNG SHUO YU, LUKE	Aquarius
+                SHAUN SZE YU HENG	Aquarius
+                SOH YU ZHE, RYAN	Sagittarius
+                TAN GEK KWAN	Scorpio
+                TAN SIONG JIK JUSTIN	Gemini
+                TAN YOU LIANG	Scorpio
+                VINCENT CAYADI	Aries
+                WANG GUANYU	Sagittarius
+                WANG SHUYAN	Aquarius
+                XIONG RUIHAI	Cancer
+                XU ZIWEN	Aquarius
+                YANG AN YI	Sagittarius
+                YU TENGJUN	Gemini
+                ZHU YUNSONG	Virgo`;
+
+    function question10(){
+        let temp={};
+        let final=[];
+        let arr=str.split(/\n|\t/);
+        arr.map((item,ind,arra) => {
+            if (ind%2==0 || ind==0){temp.name=item}
+            else{
+                temp.horoscope=item
+                final.push(temp)
+                temp={}
+            }
+        })
+        return final
+    }
+
+    function question11(){console.log(JSON.stringify(question10()))}
+
+    function question12(){
+        let arr=question10()
+        let final={}
+        arr.forEach(item =>{
+            item.horoscope in final ? final[item.horoscope]+=1 : final[item.horoscope]=1
+        })
+        console.log(final)
+    }
+</script>

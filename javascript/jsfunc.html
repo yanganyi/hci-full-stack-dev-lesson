@@ -1,0 +1,30 @@
+<script>
+    function str2Array(str){
+        array = str.split(',')
+        .map(it=>(isNaN(it) ? it.trim() : Number(it)));
+        console.log(array);
+    }
+
+    function drawTriangle(int){
+        let str="";
+        for (let i=1;i<=int;i++) str+=`${"*".repeat(i)}\n`;
+        console.log(str);
+    }
+
+    function minMax(list){
+        let num=[],alpha=[];
+        for (let i of list) isNaN(i) ? alpha.push(i) : num.push(i);
+        let min = Math.min(...num), max = Math.max(...num), non = alpha.length;
+        // can also use filter on the list
+        console.log(`Min: ${min}; Max: ${max}; Non-numeric: ${non}`);
+    }
+
+    function evenOdd(list){
+        let even=[],odd=[],discard = []
+        for (let i of list){
+            if (Number.isInteger(i)) i%2==0 ? even.push(i) : odd.push(i);
+            else discard.push(i);
+        }
+        console.log(`Even numbers: ${even}\nOdd numbers: ${odd}\nDiscarded: ${discard}`)
+    }
+</script>
